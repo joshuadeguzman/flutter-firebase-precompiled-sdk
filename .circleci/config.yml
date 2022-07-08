@@ -19,6 +19,7 @@ commands:
       - run:
           command: flutter build ios --no-codesign
           name: Build IPA
+          no_output_timeout: 60m
   format:
     description: Run checks if Flutter code is formatted
     steps:
@@ -53,7 +54,6 @@ jobs:
       - build-android
   build-ios:
     executor: macos
-    no_output_timeout: 60m
     steps:
       - checkout
       - flutter/install_sdk_and_pub:
